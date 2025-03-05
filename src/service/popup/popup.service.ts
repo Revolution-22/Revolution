@@ -5,16 +5,18 @@ import { PopupType } from './popup.model';
 import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PopupService {
-
-  constructor(private injector: Injector, @Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(
+    private injector: Injector,
+    @Inject(PLATFORM_ID) private platformId: Object,
+  ) {
     if (isPlatformBrowser(this.platformId)) {
-        const PopupElement = createCustomElement(PopupComponent, { injector });
-        if (!customElements.get('app-popup')) {
-          customElements.define('app-popup', PopupElement);
-        }   
+      const PopupElement = createCustomElement(PopupComponent, { injector });
+      if (!customElements.get('app-popup')) {
+        customElements.define('app-popup', PopupElement);
+      }
     }
   }
 

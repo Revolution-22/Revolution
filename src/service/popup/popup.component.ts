@@ -61,8 +61,8 @@ import { PopupType } from './popup.model';
         cursor: pointer;
         font-size: 20px;
       }
-    `
-  ]
+    `,
+  ],
 })
 export class PopupComponent {
   @Input() title = 'Popup Title';

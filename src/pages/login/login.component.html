@@ -1,39 +1,61 @@
 <div class="main-container">
-    <div class="login-form-container">
-        <h2>~ Login to Revolution ~</h2>
-        <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="login-form">
-        <div class="form-group">
-            <label for="email">~ Email ~</label>
-            <br/>
-            <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            [(ngModel)]="userLoginRequest.email" 
-            required 
-            class="form-control"
-            placeholder="Enter your email">
+  <div class="login-form-container">
+    <h2>~ Login to Revolution ~</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <div class="form-group">
+        <label for="email">~ Email ~</label>
+        <br />
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="form-control"
+          placeholder="Enter your email"
+        />
+        <div
+          *ngIf="
+            loginForm.get('email')?.invalid && loginForm.get('email')?.touched
+          "
+          class="error"
+        >
+          Email is required and must be valid!
         </div>
+      </div>
 
-        <div class="form-group">
-            <label for="password">~ Password ~</label>
-            <br/>
-            <input 
-            type="password" 
-            id="password" 
-            name="password" 
-            [(ngModel)]="userLoginRequest.password" 
-            required 
-            class="form-control"
-            placeholder="Enter your password">
+      <div class="form-group">
+        <label for="password">~ Password ~</label>
+        <br />
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          class="form-control"
+          placeholder="Enter your password"
+        />
+        <div
+          *ngIf="
+            loginForm.get('password')?.invalid &&
+            loginForm.get('password')?.touched
+          "
+          class="error"
+        >
+          Password is required!
         </div>
+      </div>
 
-        <div class="form-group">
-            <button type="submit" [disabled]="!loginForm.form.valid" class="btn submit-btn">Click to login</button>
-            <br/>
-            <br/>
-            You don't have account? <a routerLink="/register"> Click to register!</a>
-        </div>
-        </form>
-    </div>
+      <div class="form-group">
+        <button
+          type="submit"
+          [disabled]="loginForm.invalid"
+          class="btn submit-btn"
+        >
+          Click to login
+        </button>
+        <br />
+        <br />
+        You don't have an account?
+        <a routerLink="/register">Click to register!</a>
+      </div>
+    </form>
+  </div>
 </div>

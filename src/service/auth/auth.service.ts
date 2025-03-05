@@ -1,23 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserLoginRequest, UserRegisterRequest, UserResponse } from './auth.model';
+import {
+  UserLoginRequest,
+  UserRegisterRequest,
+  UserResponse,
+} from './auth.model';
 import { Observable } from 'rxjs';
-import { API_URL } from '../../config';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(
-    private httpClient: HttpClient
-  ) { }
+  constructor(private httpClient: HttpClient) {}
 
   login(request: UserLoginRequest): Observable<UserResponse> {
-    return this.httpClient.post<UserResponse>(`${API_URL}/auth/login`, request);
+    return this.httpClient.post<UserResponse>(
+      `${environment.apiUrl}/auth/login`,
+      request,
+    );
   }
 
   register(request: UserRegisterRequest): Observable<UserResponse> {
-    return this.httpClient.post<UserResponse>(`${API_URL}/auth/register`, request);
+    return this.httpClient.post<UserResponse>(
+      `${environment.apiUrl}/auth/register`,
+      request,
+    );
   }
 }

@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PopupType } from './popup.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-popup',
   imports: [CommonModule],
   template: `
     <div class="popup">
-      <div class="popup-content" [ngClass]="poTypeClass">
+      <div class="popup-content" [ngClass]="type">
         <span class="close-btn" (click)="closePopup()">&times;</span>
         <h2>{{ title }}</h2>
         <p>{{ message }}</p>
@@ -64,15 +65,16 @@ import { PopupType } from './popup.model';
     `,
   ],
 })
-export class PopupComponent {
+export class PopupComponent implements OnInit {
   @Input() title = 'Popup Title';
   @Input() message = 'Popup Message';
   @Input() type: PopupType = PopupType.Success;
 
-  get poTypeClass() {
-    return this.type;
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.closePopup();
+    }, environment.popupTimeout);
   }
-
   closePopup() {
     document.body.removeChild(document.querySelector('app-popup')!);
   }

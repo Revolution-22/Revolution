@@ -8,9 +8,7 @@ export class TokenManagerService {
   private TOKEN = 'TOKEN';
 
   storeToken(token: Token): Token {
-    if (token.token && token.refreshToken) {
-      localStorage.setItem(this.TOKEN, JSON.stringify(token));
-    }
+    localStorage.setItem(this.TOKEN, JSON.stringify(token));
     return token;
   }
 

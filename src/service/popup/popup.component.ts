@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { PopupType } from './popup.model';
+import { PopupType } from './popup.constants';
 import { environment } from 'src/environments/environment';
 import { popupToClose } from './popup.config';
 

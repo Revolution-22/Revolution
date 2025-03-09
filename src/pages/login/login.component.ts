@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../service/auth/auth.service';
 import { PopupService } from '../../service/popup/popup.service';
-import { PopupType } from '../../service/popup/popup.model';
+import { PopupType } from '../../service/popup/popup.constants';
 import { TokenManagerService } from '../../service/token-manager/token-manager.service';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -41,7 +41,6 @@ export class LoginComponent {
 
     this.authService.login(this.loginForm.value).subscribe(
       (response) => {
-
         this.notify.showPopup(
           'Success!',
           'Successfully logged in!',
@@ -52,7 +51,7 @@ export class LoginComponent {
           token: response.token,
           refreshToken: response.refreshToken,
         });
-        
+
         this.router.navigate(['/dashboard']);
       },
       (error) =>

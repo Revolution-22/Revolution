@@ -12,7 +12,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../service/auth/auth.service';
 import { PopupService } from '../../service/popup/popup.service';
-import { PopupType } from '../../service/popup/popup.model';
+import { PopupType } from '../../service/popup/popup.constants';
 import { error } from 'console';
 import { TokenManagerService } from '../../service/token-manager/token-manager.service';
 import { Router, RouterModule } from '@angular/router';
@@ -46,13 +46,12 @@ export class RegisterComponent {
 
     this.authService.register(this.registerForm.value).subscribe(
       (response) => {
-
         this.notify.showPopup(
           'Success!',
           'Successfully registered!',
           PopupType.Success,
         );
-        
+
         this.router.navigate(['/login']);
       },
       (error) =>

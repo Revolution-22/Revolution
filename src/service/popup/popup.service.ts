@@ -1,7 +1,7 @@
 import { Inject, Injectable, Injector, PLATFORM_ID } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 import { PopupComponent } from './popup.component';
-import { PopupType } from './popup.model';
+import { PopupType } from './popup.constants';
 import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({

@@ -5,23 +5,18 @@ import { Token } from './token-manager.model';
   providedIn: 'root',
 })
 export class TokenManagerService {
-  private TOKEN = 'TOKEN';
+  private LS_TOKEN_KEY = 'REVO_TOKEN_KEY';
 
   storeToken(token: Token): Token {
-    localStorage.setItem(this.TOKEN, JSON.stringify(token));
+    localStorage.setItem(this.LS_TOKEN_KEY, JSON.stringify(token));
     return token;
   }
 
-  getToken(): Token {
-    const token = localStorage.getItem(this.TOKEN);
-    const emptyToken = { token: '', refreshToken: '' };
+  getToken(): Token | null {
+    const token = localStorage.getItem(this.LS_TOKEN_KEY);
     if (token) {
-      try {
-        return JSON.parse(token);
-      } catch (exception) {
-        return emptyToken;
-      }
+      return JSON.parse(token);
     }
-    return emptyToken;
+    return null;
   }
 }

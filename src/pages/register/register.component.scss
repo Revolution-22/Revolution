@@ -1,138 +1,106 @@
-@media (min-width: 768px) {
-  .main-container {
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  background-repeat: repeat;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
   }
+}
 
-  .login-form-container {
+.login-form-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    max-width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: 40vh;
-    margin-top: 30vh;
     width: 700px;
-    margin-left: auto;
-    margin-right: auto;
     background-color: #f7f7f7;
     border: 5px solid #f0f0f0;
     border-radius: 15%;
-    padding: 20px;
-  }
-
-  h2 {
-    font-size: 32px;
-    text-align: center;
-    padding: 20px;
-    color: black;
-  }
-
-  .form-group {
-    text-align: center;
-
-    label {
-      font-size: 20px;
-      margin-top: 20px;
-      border-bottom: 3px dashed #d0d0d0;
-    }
-
-    input {
-      margin-top: 20px;
-      margin-bottom: 20px;
-      width: 300px;
-      height: 40px;
-      border: 3px solid #d0d0d0;
-      padding: 5px;
-      text-align: center;
-      background-color: #f7f7f7;
-    }
-
-    button {
-      margin-top: 20px;
-      font-size: 32px;
-      width: 300px;
-      height: 40px;
-      border: none;
-      background-color: white;
-      font-family: 'Graduate', serif;
-      font-weight: 400;
-      font-style: normal;
-      border-radius: 5%;
-      background-color: #f7f7f7;
-      color: black;
-
-      &:hover {
-        border-bottom: 3px solid #d0d0d0;
-      }
-    }
   }
 }
 
-@media (max-width: 768px) {
-  .main-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 16px;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
     padding: 20px;
-    margin-top: 0;
-    margin-left: 0;
-    background-repeat: repeat;
-    margin: 0 auto;
+    color: black;
+  }
+}
+
+.form-group {
+  text-align: center;
+
+  label {
+    font-size: 12px;
+    margin-top: 20px;
+    border-bottom: 3px dashed #d0d0d0;
+
+    @media (min-width: 768px) {
+      font-size: 20px;
+    }
   }
 
-  .login-form-container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 400px;
+  input {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 20px;
+    border: 3px solid #d0d0d0;
+    padding: 5px;
     text-align: center;
+    background-color: #f7f7f7;
 
-    h2 {
-      color: #333;
-      margin-bottom: 20px;
-      font-size: 16px;
+    @media (min-width: 768px) {
+      width: 300px;
+      height: 40px;
+    }
+  }
+
+  button {
+    margin-top: 20px;
+    font-size: 14px;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 40px;
+    border: none;
+    background-color: #f7f7f7;
+    font-family: 'Graduate', serif;
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 5%;
+    color: black;
+
+    &:hover {
+      border-bottom: 3px solid #d0d0d0;
     }
 
-    .form-group {
-      text-align: center;
-
-      label {
-        font-size: 12px;
-        margin-top: 20px;
-        border-bottom: 3px dashed #d0d0d0;
-      }
-
-      input {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        width: 200px;
-        height: 20px;
-        border: 3px solid #d0d0d0;
-        padding: 5px;
-        text-align: center;
-        background-color: #f7f7f7;
-      }
-
-      button {
-        margin-top: 20px;
-        font-size: 14px;
-        width: 300px;
-        height: 40px;
-        border: none;
-        background-color: white;
-        font-family: 'Graduate', serif;
-        font-weight: 400;
-        font-style: normal;
-        border-radius: 5%;
-        background-color: #f7f7f7;
-        color: black;
-
-        &:hover {
-          border-bottom: 3px solid #d0d0d0;
-        }
-      }
+    @media (min-width: 768px) {
+      font-size: 32px;
     }
   }
 }

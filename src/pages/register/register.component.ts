@@ -46,11 +46,13 @@ export class RegisterComponent {
 
     this.authService.register(this.registerForm.value).subscribe(
       (response) => {
+
         this.notify.showPopup(
           'Success!',
           'Successfully registered!',
           PopupType.Success,
         );
+        
         this.router.navigate(['/login']);
       },
       (error) =>

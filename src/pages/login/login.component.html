@@ -1,7 +1,7 @@
 <div class="main-container">
   <div class="login-form-container">
     <h2>~ Login to Revolution ~</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+    <form [formGroup]="loginForm" class="login-form">
       <div class="form-group">
         <label for="email">~ Email ~</label>
         <br />
@@ -12,14 +12,11 @@
           class="form-control"
           placeholder="Enter your email"
         />
-        <div
-          *ngIf="
-            loginForm.get('email')?.invalid && loginForm.get('email')?.touched
-          "
-          class="error"
-        >
-          Email is required and must be valid!
-        </div>
+        @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+          <div class="error">
+            Email is required and must be valid!
+          </div>
+        }
       </div>
 
       <div class="form-group">
@@ -32,27 +29,21 @@
           class="form-control"
           placeholder="Enter your password"
         />
-        <div
-          *ngIf="
-            loginForm.get('password')?.invalid &&
-            loginForm.get('password')?.touched
-          "
-          class="error"
-        >
-          Password is required!
-        </div>
+        @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+          <div class="error">
+            Password is required!
+          </div>
+        }
       </div>
 
       <div class="form-group">
         <button
-          type="submit"
+          (click)="onSubmit()"
           [disabled]="loginForm.invalid"
           class="btn submit-btn"
         >
           Click to login
         </button>
-        <br />
-        <br />
         You don't have an account?
         <a routerLink="/register">Click to register!</a>
       </div>

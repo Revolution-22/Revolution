@@ -41,15 +41,18 @@ export class LoginComponent {
 
     this.authService.login(this.loginForm.value).subscribe(
       (response) => {
+
         this.notify.showPopup(
           'Success!',
           'Successfully logged in!',
           PopupType.Success,
         );
+
         this.tokenManagerService.storeToken({
           token: response.token,
           refreshToken: response.refreshToken,
         });
+        
         this.router.navigate(['/dashboard']);
       },
       (error) =>
